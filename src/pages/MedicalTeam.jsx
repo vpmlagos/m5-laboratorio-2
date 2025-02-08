@@ -4,7 +4,7 @@ import { Container, Form, Card, InputGroup, Row, Col, Table } from 'react-bootst
 import Banner from '../components/Banner';
 
 // Traer información de servicios
-const API_URL = "http://demo5081911.mockable.io/medicos";
+const API_URL = "https://demo5081911.mockable.io/medicos";
 
 const EquipoMedico = () => {
   const [equipoMedico, setEquipoMedico] = useState([]);
@@ -62,28 +62,17 @@ const EquipoMedico = () => {
         </Card.Body>
       </Card>
 
-      {filtrado.length > 0 ? (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Especialidad</th>
-              <th>Contacto</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtrado.map((doctor) => (
-              <tr key={doctor.id}>
-                <td>{doctor.nombre}</td>
-                <td>{doctor.especialidad}</td>
-                <td>{doctor.contacto}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      ) : (
-        <p className="text-center">No se encontraron resultados.</p>
-      )}
+      <Row>
+        {filtrado.length > 0 ? (
+          filtrado.map((doctor) => (
+            <Col key={doctor.id} md={4}>
+              <DoctorCard doctor={doctor} />
+            </Col>
+          ))
+        ) : (
+          <p className="text-center">No se encontraron resultados.</p>
+        )}
+      </Row>
     </Container>
   );
 };

@@ -76,7 +76,7 @@ body {
 
 /* Efecto hover para los enlaces */
 .navbar .nav-link:hover {
-    color: #179fcd; /* Color en hover */
+    color: #179fcd;
 }
 
 /* Ajustes cuando el navbar es expandido */

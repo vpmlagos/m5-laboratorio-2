@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
 import { AuthProvider } from './context/AuthContext';
 import DoctorPanel from './components/DoctorPanel';
+import AdminPanel  from './PrivatePages/AdminPanel';
 
 const App = () => {
   return (
@@ -21,9 +22,16 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/contacto" element={<ContactForm />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/equipo" element={<PrivateRoute element={<MedicalTeam />} requiredRole="admin" />} />
+            <Route path="/equipo" element={<MedicalTeam />} />
             <Route path="/cita" element={<Appointments />} />
-            <Route path="/doctor-dashboard" element={<DoctorPanel />} requiredRole="doctor" />
+            <Route
+              path="/gestion-equipo"
+              element={
+                <PrivateRoute requiredRoles={['Admin']}>
+                  <AdminPanel />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />
