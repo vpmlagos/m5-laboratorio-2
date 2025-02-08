@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import '../styles/AdminPanel.css';
 
 const AdminPanel = () => {
     const { isAuthenticated, role, logout } = useAuth();
@@ -10,33 +11,33 @@ const AdminPanel = () => {
     }
 
     return (
-        <Container className="mt-5">
+        <Container className="contenedorAdminPanel">
+            <Row className="d-flex align-items-center mb-5">
+                <Col xs="auto" className="d-flex align-items-center">
+                    <img
+                        src="https://ui-avatars.com/api/?name=Admin&background=179fcd&color=fff&size=128"
+                        alt="Perfil Admin"
+                        className="user-greeting__avatar"
+                    />
+                </Col>
+                <Col>
+                    <h1 className="user-greeting__text">¡Bienvenido, Admin!</h1>
+                </Col>
+            </Row>
+
             <Row>
                 <Col>
                     <Card>
                         <Card.Header>
-                            <>
-                                <div>
-                                    <img
-                                        src="https://ui-avatars.com/api/?name=Admin&background=179fcd&color=fff&size=128"
-                                        alt="Perfil Admin"
-                                        className="user-greeting__avatar"
-                                    />
-                                    <h1> ¡Bienvenido, Admin!  </h1>
-                                    <h2>Panel de Administrador</h2>
-                                </div>
-
-                            </>
-
+                            <h2>Panel de Administrador</h2>
                         </Card.Header>
                         <Card.Body>
-                            <h4>Bienvenido al panel de administración</h4>
-                            <p>Aquí puedes gestionar usuarios, ver estadísticas y más.</p>
-                            <Button variant="primary" onClick={() => alert('Gestión de usuarios')}>
-                                Gestionar Usuarios
+                            <p>Aquí puedes gestionar el equipo médico, registro de pacientes y más.</p>
+                            <Button variant="primary" onClick={() => alert('Gestión de equipo médico')}>
+                                Gestionar Equipo Médico
                             </Button>
-                            <Button variant="secondary" onClick={() => alert('Ver estadísticas')}>
-                                Ver Estadísticas
+                            <Button variant="secondary" onClick={() => alert('Registro de Pacientes')}>
+                                Registro de Pacientes
                             </Button>
                             <Button variant="danger" onClick={logout}>
                                 Cerrar sesión

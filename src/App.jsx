@@ -25,7 +25,7 @@ const App = () => {
             <Route path="/equipo" element={<MedicalTeam />} />
             <Route path="/cita" element={<Appointments />} />
             <Route
-              path="/gestion-equipo"
+              path="/admin-panel"
               element={
                 <PrivateRoute requiredRoles={['Admin']}>
                   <AdminPanel />

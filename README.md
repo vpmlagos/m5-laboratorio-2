@@ -12,7 +12,15 @@ npm install bootstrap @popperjs/core<br>
 npm install react-bootstrap-icons<br>
 npm install axios
 npm install react-router-dom
+npm install cors
+npm install express
+npm install dotenv
+npm install helmet
+npm install express-rate-limit
+npm install xss-clean
+npm install bcryptjs<br>
 npm run dev<br>
+node ./src/APIs/Login.cjs<br>
 </code>
 
 

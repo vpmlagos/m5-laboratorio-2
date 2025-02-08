@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    localStorage.removeItem('role'); // Limpiamos también el rol
+    localStorage.removeItem('role'); 
     setIsAuthenticated(false);
     setRole(null);
   };

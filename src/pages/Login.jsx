@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext';
+import "../styles/LoginStyle.css";
 
 const API_BASE_URL = 'http://localhost:8080';
 
 const Login = () => {
-  const { login } = useAuth();  
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -33,8 +34,8 @@ const Login = () => {
     setIsSubmitting(true);
 
     const credentials = {
-      username: formData.usernameOrEmail, 
-      password: formData.password,      
+      username: formData.usernameOrEmail,
+      password: formData.password,
     };
 
     try {
@@ -43,14 +44,14 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(credentials), 
+        body: JSON.stringify(credentials),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Credenciales incorrectas');
       }
-      
+
       const { access_token } = await response.json();
       localStorage.setItem('token', access_token);
       const tokenPayload = JSON.parse(atob(access_token.split('.')[1]));
@@ -69,13 +70,14 @@ const Login = () => {
 
       // Navegar según el rol del usuario
       if (userRole === 'Admin') {
-        navigate('/gestion-equipo', { replace: true });
+        navigate('/admin-panel', { replace: true });
       } else {
         navigate('/registro-pacientes', { replace: true });
       }
 
     } catch (error) {
       if (error instanceof Error) {
+        // Error al obtener el token o datos de la API
         setErrors((prev) => ({ ...prev, generalError: error.message }));
       }
     } finally {
@@ -132,7 +134,7 @@ const Login = () => {
                   <Link to="/register">
                     <Button className="btn-registrar">Registrarme</Button>
                   </Link>
-                  <Link to="/" className="forgot-password">
+                  <Link to="/forgot-password" className="forgot-password">
                     ¿Olvidaste tu contraseña?
                   </Link>
                 </Col>

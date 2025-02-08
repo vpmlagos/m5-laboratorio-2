@@ -17,9 +17,11 @@
   .card-title {
     font-size: 1.25rem;
     font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   
   .card-text {
     color: #777;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   
