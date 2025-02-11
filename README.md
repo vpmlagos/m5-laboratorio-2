@@ -2,8 +2,8 @@
 ## INSTALACIÓN
 
 <code>
-git clone git@github.com:vpmlagos/m4-laboratorio-3.git
-cd m4-l3-app <br>
+git clone git@github.com:vpmlagos/m4-laboratorio-2.git
+cd m4-laboratorio-2 <br>
 npm install<br>
 npm install react-router-dom<br>
 npm install prop-types<br>
