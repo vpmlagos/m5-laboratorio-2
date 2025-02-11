@@ -21,10 +21,7 @@ npm install xss-clean<br>
 npm install bcryptjs<br>
 npm run dev<br>
 </code>
-
-
 Y en una nueva ventana
-
 <code>
 node ./src/APIs/Login.cjs<br>
 </code>
